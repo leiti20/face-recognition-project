@@ -1,7 +1,7 @@
 # face-recognition-project 
+Ce projet permet de détecter les visages, d’estimer l’âge et le genre à partir d’une image ou d’une webcam en utilisant OpenCV et des modèles Caffe pré-entraînés.
 
-## File Tree: face-recognition-project
-
+## Structure du projet
 ```bash
 ├── 📁 models
 │   ├── 📄 age_deploy.prototxt
@@ -17,5 +17,6 @@
 ├── 🐍 main.py
 └── 📄 requirement.txt
 ```
+
 
 
