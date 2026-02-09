@@ -8,18 +8,14 @@ class FaceDetector:
         self.net = cv.dnn.readNetFromCaffe(self.configFile, self.modelFile)
 
     def detect_faces(self, frame):
-        # Obtenir les dimensions de l'image
         h, w = frame.shape[:2]
         
-        # Prétraiter l'image pour le réseau de neurones
         blob = cv.dnn.blobFromImage(frame, 1.0, (300, 300),(104, 177, 123))
 
-        # Passer l'image à travers le réseau pour obtenir les détections
         self.net.setInput(blob)
         detections = self.net.forward()
 
         faces = []
-        # Parcourir les détections et filtrer celles qui ont une confiance suffisante
         for i in range(detections.shape[2]):
             confidence = detections[0, 0, i, 2]
 
