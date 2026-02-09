@@ -10,12 +10,10 @@ class AgeDetector:
         self.ageList = ['(0-2)', '(4-6)', '(8-12)', '(15-20)',
                         '(25-32)', '(38-43)', '(48-53)', '(60-100)']
 
-    # Prédire l'âge à partir de l'image du visage
     def predict(self, face_img):
         blob = cv.dnn.blobFromImage(face_img, 1.0, (227, 227),
                                      (78.4263377603, 87.7689143744, 114.895847746),
                                      swapRB=False)
-        # Passer l'image à travers le réseau pour obtenir les prédictions
         self.net.setInput(blob)
         preds = self.net.forward()
         return self.ageList[preds[0].argmax()]
